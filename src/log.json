@@ -1,0 +1,19 @@
+{	
+	"Dev"	:	{		
+		"module" : "QILogger",
+		"level" : "DEBUG",
+		"prefix"	: "",
+		"console" : true,
+		"fileName" : "../logfile.log",
+		"formatString" :	"%{time:2006-01-02 15:04:05} %{level:.8s} %{message}"
+	},
+
+	"Production" : {		
+		"module" : "QILogger",
+		"level" : "INFO",
+		"prefix"	: "",
+		"console" : true,
+		"fileName" : "../logfile.log",
+		"formatString" :	"%{time:2006-01-02 15:04:05} %{level:.8s} %{message}"
+	}
+}

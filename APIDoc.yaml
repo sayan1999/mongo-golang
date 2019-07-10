@@ -1,0 +1,343 @@
+swagger: '2.0'
+info:
+  version: 0.0.1
+  description: API specs for mongo-go operations
+  title: MONGO GO SERVER
+host: 'localhost:54323'
+schemes:
+  - http
+paths:
+  /connecttoserver:
+    get:
+      tags:
+        - Connect
+      summary: Enter Host and Port name
+      description: HostIP and Port NO.
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: host
+          description: Enter Host
+          required: true
+          type: string
+          default: localhost
+        - in: query
+          name: port
+          description: Enter Port
+          required: true
+          type: string
+          default: '27017'
+      responses:
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '422':
+          description: Unprocessable Entity. Error in request content
+        '500':
+          description: Internal Server Error
+  /connecttodb:
+    get:
+      tags:
+        - Connect
+      summary: Enter Database and Collection name
+      description: Database and Collection name
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: database
+          description: Enter Database name
+          required: true
+          type: string
+          default: Practice
+        - in: query
+          name: collection
+          description: Enter Collection name
+          required: true
+          type: string
+          default: Test1
+      responses:
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '422':
+          description: Unprocessable Entity. Error in request content
+        '500':
+          description: Internal Server Error
+  /insertone:
+    post:
+      tags:
+        - Insert
+      summary: Enter One Document
+      description: Inserts Single Document
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Insert a Document
+          required: true
+          schema:
+            $ref: '#/definitions/Insert1'
+      responses:
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '422':
+          description: Unprocessable Entity. Error in request content
+        '500':
+          description: Internal Server Error
+  /insertmany:
+    post:
+      tags:
+        - Insert
+      summary: Enter Multiple Documents
+      description: Inserts Multiple Documents
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Insert Multiple Documents
+          required: true
+          schema:
+            $ref: '#/definitions/Insert2'
+      responses:
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '422':
+          description: Unprocessable Entity. Error in request content
+        '500':
+          description: Internal Server Error\
+  /findone:
+    get:
+      tags:
+        - Find
+      summary: Find One Document
+      description: Finds One Document
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: filter
+          description: Enter Filters
+          required: true
+          type: string
+          default: '{"key1": "value1", "key2": "value2"}'
+        - in: query
+          name: projection
+          description: Enter Projection Fields
+          required: true
+          type: string
+          default: '{"key1": 1}'
+      responses:
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '422':
+          description: Unprocessable Entity. Error in request content
+        '500':
+          description: Internal Server Error\
+  /findall:
+    get:
+      tags:
+        - Find
+      summary: Find Many Documents
+      description: Finds Many Documents
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: filter
+          description: Enter Filters
+          required: true
+          type: string
+          default: '{"key1": "value1", "key2": "value2"}'
+        - in: query
+          name: projection
+          description: Enter Projection Fields
+          required: true
+          type: string
+          default: '{"key1": 1}'
+      responses:
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '422':
+          description: Unprocessable Entity. Error in request content
+        '500':
+          description: Internal Server Error\
+  /updateone:
+    put:
+      tags:
+        - Update
+      summary: Update One Document
+      description: Updates One Document
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Enter Filters and Projection Fields
+          required: true
+          schema:
+            $ref: '#/definitions/Update'
+      responses:
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '422':
+          description: Unprocessable Entity. Error in request content
+        '500':
+          description: Internal Server Error\
+  /updatemany:
+    put:
+      tags:
+        - Update
+      summary: Update Many Document
+      description: Updates Many Document
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Enter Filters and Projection Fields
+          required: true
+          schema:
+            $ref: '#/definitions/Update'
+      responses:
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '422':
+          description: Unprocessable Entity. Error in request content
+        '500':
+          description: Internal Server Error\
+  /deleteone:
+    delete:
+      tags:
+        - Delete
+      summary: Delete One Document
+      description: Deletes One Document
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: filter
+          description: Enter Host
+          required: true
+          type: string
+          default: '{"key1": "value1", "key2": "value2"}'
+      responses:
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '422':
+          description: Unprocessable Entity. Error in request content
+        '500':
+          description: Internal Server Error\
+  /deletemany:
+    delete:
+      tags:
+        - Delete
+      summary: Delete Many Documents
+      description: Deletes Many Documents
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: filter
+          description: Enter Host
+          required: true
+          type: string
+          default: '{"key1": "value1", "key2": "value2"}'
+      responses:
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '422':
+          description: Unprocessable Entity. Error in request content
+        '500':
+          description: Internal Server Error\
+  /deleteall:
+    delete:
+      tags:
+        - Delete
+      summary: Delete All Documents
+      description: Deletes All Documents
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '422':
+          description: Unprocessable Entity. Error in request content
+        '500':
+          description: Internal Server Error\
+definitions:
+  Insert1:
+    type: object
+    xml:
+      name: Insert1
+    example:
+      key1: value1
+      key2: value2
+  Insert2:
+    type: array
+    items:
+      $ref: '#/definitions/Insert1'
+    xml:
+      name: Insert2
+    example:
+      - key1: value1
+        key2: value2
+      - key1: value1
+        key2: value2
+  Update:
+    type: array
+    items:
+      type: object
+    xml:
+      name: Insert2
+    example:
+      - key1: value1
+        key2: value2
+      - $set:
+          key1: value2
+          key2: value1
