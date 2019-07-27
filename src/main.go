@@ -1,7 +1,7 @@
 package main
 
 import (
-	"mongogolanglib/src/endPoint"
+	"endPoint"
 	"qilog"
 )
 
