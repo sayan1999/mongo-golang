@@ -1,51 +1,60 @@
 # Mongo Go Sever
+Mongo Go Server is a server housing a Mongo Database with the server sided code written in Golang
 
-	Mongo Go Server is a server housing a Mongo Database with the server sided code written in Golang
+## Dependencies
+Install the following packages:
 
-## Downloading the source code
-
-	git clone at https://sayaninspiron@bitbucket.org/qinvent/mongogolanglib.git
-
-	or,
-
-	click on the link https://sayaninspiron@bitbucket.org/qinvent/mongogolanglib.git to download the code
+```bash
+go get go.mongodb.org/mongo-driver/mongo
+go.mongodb.org/mongo-driver/bson
+go.mongodb.org/mongo-driver/mongo/options
+```
 
 ## Directory organization
+Expected file organization:
 
-	Create a directory named gocode and inside the code create three other directories src, pkg and bin 
+.../gocode/
+       pkg/
+       bin/
+       src/
+	 /mongo-golang/
 
-	Inside src create a directory named mongogolib 
-
-	Place all the files inside mongogolib
-
-	The file organization is expected to be as:
-
-		.../gocode/
-		       pkg/
-		       bin/
-		       src/
-		         /mongogolib/
-		                pkg/
-		       			bin/
-		       			src/
-		       			others/
-		                readme.md
-
-	set your GOPATH as ".../gocode"
-
-	Install mongo packages with commands
-
-		go get go.mongodb.org/mongo-driver/mongo
-		go.mongodb.org/mongo-driver/bson
-		go.mongodb.org/mongo-driver/mongo/options
-
+considering .../gocode/src as your go workspace and your GOPATH set as ".../gocode"	
 
 ## Running the code 
+Find swagger config file at mongo-golang/frontend/APIDoc.yaml
+Navigate to .../gocode/src/mongo-golang/src on your terminal and run the following commands:
 
-Upload the swagger file "APIDoc.yaml" (i.e. API documentation for the API interface) to your stand alone swagger editor 
+```bash
+go build main.go
+./main.exe
+```
+Note: Give permission to the firewall prompt if any appears.
 
-Navigate to .../gocode/src/mongogolib/src in your command prompt and run the following commands:
 
-	go build main.go
-	./main.exe
-	(give permission to the firewall prompt if any and interact from your swagger UI)
+Make http requests from your standalone local swagger or 
+make curl requests from terminal as examples given at mongo-golang/frontend/httpURLs.txt:
+
+```bash
+curl -X GET "http://localhost:12345/connecttoserver?host=localhost&port=27017" -H "accept: application/json"
+
+curl -X GET "http://localhost:12345/connecttodb?database=Practice&collection=Test1" -H "accept: application/json"
+
+curl -X POST "http://localhost:12345/insertone" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"key1\": \"value1\", \"key2\": \"value2\"}"
+
+curl -X POST "http://localhost:12345/insertmany" -H "accept: application/json" -H "Content-Type: application/json" -d "[ { \"key1\": \"value1\", \"key2\": \"value2\" }, { \"key1\": \"value1\", \"key2\": \"value2\" }]"
+
+curl -X GET "http://localhost:12345/findone?filter=%7B%22key1%22%3A%20%22value1%22%2C%20%22key2%22%3A%20%22value2%22%7D&projection=%7B%22key1%22%3A%201%7D" -H "accept: application/json"
+
+curl -X GET "http://localhost:12345/findall?filter=%7B%22key1%22%3A%20%22value1%22%2C%20%22key2%22%3A%20%22value2%22%7D&projection=%7B%22key1%22%3A%201%7D" -H "accept: application/json"
+
+curl -X PUT "http://localhost:12345/updateone" -H "accept: application/json" -H "Content-Type: application/json" -d "[ { \"key1\": \"value1\", \"key2\": \"value2\" }, { \"$set\": { \"key1\": \"value2\", \"key2\": \"value1\" } }]"
+
+curl -X PUT "http://localhost:12345/updatemany" -H "accept: application/json" -H "Content-Type: application/json" -d "[ { \"key1\": \"value1\", \"key2\": \"value2\" }, { \"$set\": { \"key1\": \"value2\", \"key2\": \"value1\" } }]"
+
+curl -X DELETE "http://localhost:12345/deleteone?filter=%7B%22key1%22%3A%20%22value1%22%2C%20%22key2%22%3A%20%22value2%22%7D" -H "accept: application/json"
+
+curl -X DELETE "http://localhost:12345/deletemany?filter=%7B%22key1%22%3A%20%22value1%22%2C%20%22key2%22%3A%20%22value2%22%7D" -H "accept: application/json"
+
+curl -X DELETE "http://localhost:12345/deleteall" -H "accept: application/json"
+```
