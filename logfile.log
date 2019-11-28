@@ -53,3 +53,7 @@
 2019-11-28 13:09:45 INFO[0m vendor/router/connect.go: 30:  [Connection established to mongo server]
 2019-11-28 13:10:15 INFO[0m vendor/router/connect.go: 30:  [Connection established to mongo server]
 [31m2019-11-28 13:10:56 ERROR[0m vendor/router/connect.go: 27:  [Error found while connecting to mongo client: server selection error: server selection timeout, current topology: { Type: Unknown, Servers: [{ Addr: localhost:27011, Type: Unknown, State: Connected, Average RTT: 0, Last error: connection() : dial tcp 127.0.0.1:27011: connect: connection refused }, ] }]
+2019-11-28 13:32:15 INFO[0m main.go: 27:  [Starting application...]
+2019-11-28 13:32:15 INFO[0m main.go: 9:  [Server: 0 runnning at localhost:12345]
+2019-11-28 13:32:15 INFO[0m main.go: 9:  [Server: 1 runnning at localhost:12344]
+2019-11-28 13:32:15 INFO[0m main.go: 9:  [Server: 2 runnning at localhost:54333]
