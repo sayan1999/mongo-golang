@@ -3,11 +3,15 @@ Mongo Go Server is a server housing a Mongo Database with the server sided code 
 
 ## Dependencies
 Install the following packages:
+(make sure to export your GOPATH prior to installing the dependencies
+and export GOPATH with the same values being assigned now)
 
 ```bash
 go get go.mongodb.org/mongo-driver/mongo
-go.mongodb.org/mongo-driver/bson
-go.mongodb.org/mongo-driver/mongo/options
+go get go.mongodb.org/mongo-driver/bson
+go get go.mongodb.org/mongo-driver/mongo/options
+go get github.com/op/go-logging 
+go get github.com/gorilla/mux
 ```
 
 ## Directory organization

@@ -3,7 +3,7 @@ info:
   version: 0.0.1
   description: API specs for mongo-go operations
   title: MONGO GO SERVER
-host: 'localhost:54323'
+host: 'localhost:54333'
 schemes:
   - http
 paths:

@@ -41,7 +41,7 @@ func Init(){
 }
 
 func SetMode(){
-	Mode = "Dev"
+	Mode = "Production"
 	Monitoring = false
 	Init()
 }

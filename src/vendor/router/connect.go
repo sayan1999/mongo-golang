@@ -1,9 +1,9 @@
 package router
 import(
-    "mongogolanglib/src/mongodb"
-		"qilog"
-		"net/http"
-		"fmt"
+	"mongodb"
+	"qilog"
+	"net/http"
+	"fmt"
 )
 
 func EstablishConn(response http.ResponseWriter, request *http.Request){

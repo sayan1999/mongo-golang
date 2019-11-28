@@ -1,7 +1,7 @@
 package endPoint
 
 import (	
-	"mongogolanglib/src/router"
+	"router"
 	"github.com/gorilla/mux"
 	"net/http"
 )

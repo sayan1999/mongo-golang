@@ -1,6 +1,6 @@
 package router
 import(
-  "mongogolanglib/src/mongodb"
+  "mongodb"
 	"context"
 )
 
