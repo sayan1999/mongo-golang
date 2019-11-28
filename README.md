@@ -1,6 +1,33 @@
 # Mongo Go Sever
 Mongo Go Server is a server housing a Mongo Database with the server sided code written in Golang
 
+## Directories
+└── mongo-golang
+    ├── frontend
+    │   ├── APIDoc.yaml
+    │   └── httpURLs.txt
+    ├── README.md
+    └── src
+        ├── log.json
+        ├── main.go
+        └── vendor
+            ├── endPoint
+            │   └── endPoint.go
+            ├── mongodb
+            │   └── mongodb.go
+            ├── qilog
+            │   ├── errorHandling.go
+            │   ├── functioncallpath.go
+            │   └── logging.go
+            └── router
+                ├── connect.go
+                ├── delete.go
+                ├── find.go
+                ├── handlers.go
+                ├── insert.go
+                ├── responseAndRequest.go
+                └── update.go
+
 ## Dependencies
 Install the following packages:
 (make sure to export your GOPATH prior to installing the dependencies
