@@ -1,6 +1,8 @@
 # Mongo Go Sever
 Mongo Go Server is a server housing a Mongo Database with the server sided code written in Golang
 
+![Lovebox](previews/mongo-go.png?raw=true "Lovebox")
+
 ## Directories
 └── mongo-golang
     ├── frontend
